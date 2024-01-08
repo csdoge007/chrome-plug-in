@@ -1,13 +1,11 @@
-<script setup>
-
-</script>
-
 <template>
   <div>
-    Hello
+    <el-button type="primary">Primary</el-button>
   </div>
 </template>
 
-<style scoped>
+<script setup>
+</script>
 
-</style>
+  
+<style scoped></style>
