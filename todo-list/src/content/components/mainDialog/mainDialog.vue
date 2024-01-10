@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
+import { apiReqs } from '@/api'
 // 接受父组件传递的方法
 const emit = defineEmits(['onClose'])
 // 接收父组件传递的参数
@@ -19,6 +20,19 @@ const isVisible = computed({
         emit('onClose')
     },
 })
+const submit = () => {
+    apiReqs.submitByBackground({
+        data: {
+            text: text.value,
+        },
+        success: (res) => {
+            console.log(res);
+        },
+        fail: (res) => {
+            alert(res);
+        },
+    })
+}
 </script>
 
 <template>
@@ -34,7 +48,7 @@ const isVisible = computed({
             </div>
         </div>
         <template #footer>
-            <el-button type="primary"> Submit </el-button>
+            <el-button type="primary" @click="submit"> Submit </el-button>
         </template>
     </el-dialog>
 </template>

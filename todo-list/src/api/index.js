@@ -37,6 +37,14 @@ export const apiReqs = {
         config.method = 'get'
         apiFetch(config)
     },
+    // 委托background提交数据
+    submitByBackground: (config) => {
+        config.background = true
+        config.url = API_DOMAIN + 'submit/'
+        config.method = 'post'
+        apiFetch(config)
+    },
+     
 }
 
 // 发起请求
