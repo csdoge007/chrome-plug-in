@@ -1,4 +1,5 @@
 /*global chrome*/
+import { apiRequest } from '@/api';
 // manifest.json的Permissions配置需添加declarativeContent权限
 chrome.runtime.onInstalled.addListener(function () {
   // 默认先禁止Page Action。如果不加这一句，则无法生效下面的规则
@@ -31,3 +32,29 @@ chrome.runtime.onInstalled.addListener(function () {
       chrome.declarativeContent.onPageChanged.addRules(rules)
   })
 })
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+          // 接收来自content script的消息，requset里不允许传递function和file类型的参数
+          chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
+              const { contentRequest } = request
+              // 接收来自content的api请求
+              if (contentRequest === 'apiRequest') {
+                  let { config } = request
+                  // API请求成功的回调
+                  config.success = (data) => {
+                      data.result = 'succ'
+                      sendResponse(data)
+                  }
+                  // API请求失败的回调
+                  config.fail = (msg) => {
+                      sendResponse({
+                          result: 'fail',
+                          msg
+                      })
+                  }
+                  // 发起请求
+                  apiRequest(config)
+              }
+          })
+          return true
+      })
+      

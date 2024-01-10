@@ -22,6 +22,12 @@ devDependencies:
   less:
     specifier: ^4.2.0
     version: 4.2.0
+  mockjs:
+    specifier: ^1.1.0
+    version: 1.1.0
+  mockjs-fetch:
+    specifier: ^2.0.0
+    version: 2.0.0
   sass:
     specifier: ^1.69.7
     version: 1.69.7
@@ -586,6 +592,11 @@ packages:
       fsevents: 2.3.3
     dev: true
 
+  /commander@11.1.0:
+    resolution: {integrity: sha512-yPVavfyCcRhmorC7rWlkHn15b4wDVgVmBA7kV4QVBsF7kv/9TKJAbAXVTxvTnwP8HHKjRCJDClKbciiYS7p0DQ==}
+    engines: {node: '>=16'}
+    dev: true
+
   /concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
     dev: true
@@ -864,6 +875,17 @@ packages:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
     dependencies:
       brace-expansion: 1.1.11
+    dev: true
+
+  /mockjs-fetch@2.0.0:
+    resolution: {integrity: sha512-pi0hzikPYD49SXMDw7IP9Ns4h3lUj1hdOH3acN58QK+rbs2xNk2wowSEmjYXexIKhufSKjZ22eXX1TMcGpkxlQ==}
+    dev: true
+
+  /mockjs@1.1.0:
+    resolution: {integrity: sha512-eQsKcWzIaZzEZ07NuEyO4Nw65g0hdWAyurVol1IPl1gahRwY+svqzfgfey8U8dahLwG44d6/RwEzuK52rSa/JQ==}
+    hasBin: true
+    dependencies:
+      commander: 11.1.0
     dev: true
 
   /ms@2.1.2:

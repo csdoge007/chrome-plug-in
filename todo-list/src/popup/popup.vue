@@ -1,4 +1,5 @@
 <script setup>
+// import '@/content';
 </script>
 
 <template>
