@@ -5,7 +5,11 @@
       <el-input v-model="newTask" @keyup.enter="addTask" placeholder="Add a new task" />
       <el-button type="primary" @click="addTask">Add Task</el-button>
       <el-divider></el-divider>
-      <TodolistTree v-if="tasks.length > 0" :tasks="tasks" :newTask = "newTask">
+      <TodolistTree 
+        v-if="tasks.length > 0" 
+        :tasks="tasks" 
+        :newTask = "newTask"
+        prefix="root">
       </TodolistTree>
       <p v-else>No tasks available.</p>
     </el-card>
@@ -14,10 +18,11 @@
 
 <script setup>
 import { useTodoStore } from '@/popup/store/todoStore';
-import { ref } from 'vue';
+// import { ref } from 'vue';
+import { storeToRefs } from 'pinia';
 import TodolistTree from './todolistTree.vue';
 const todoStore = useTodoStore();
-const newTask = ref('');
+const { newTask } = storeToRefs(todoStore);
 todoStore.loadTasks();
 const tasks = todoStore.getTasks;
 

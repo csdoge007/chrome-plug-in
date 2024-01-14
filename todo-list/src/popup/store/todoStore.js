@@ -1,8 +1,14 @@
 import { defineStore } from 'pinia';
 
 export const useTodoStore = defineStore('todo', {
+  
+  state: () => {
+    return {
+      newTask: '',
+    }
+  },
   getters: {
-    getTasks: (state) => state.tasks
+    getTasks: (state) => state.tasks,
   },
   actions: {
     addTask({fa, content}) {
@@ -16,6 +22,7 @@ export const useTodoStore = defineStore('todo', {
     loadTasks() {
       const savedTasks = localStorage.getItem('tasks');
       this.tasks = savedTasks ? JSON.parse(savedTasks) : [];
+      this.newTask = '';
     },
     saveTasks() {
       localStorage.setItem('tasks', JSON.stringify(this.tasks));
@@ -35,6 +42,17 @@ export const useTodoStore = defineStore('todo', {
         tasks.forEach((t) => t.children && t.children.length > 0 && dfs(t.children));
       }
       dfs(this.tasks);
-    }
+      this.saveTasks();
+    },
+    toggleChecked(task) {
+      function dfs(task) {
+        task.done = !task.done;
+        if (task.children && task.children.length > 0) {
+          task.children.forEach((t) => dfs(t));
+        }
+      }
+      dfs(task);
+      this.saveTasks();
+    },
   }
 });

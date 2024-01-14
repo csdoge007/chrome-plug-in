@@ -10,16 +10,16 @@ chrome.runtime.onInstalled.addListener(function () {
            // 运行插件运行的页面URL规则
            conditions: [
               new chrome.declarativeContent.PageStateMatcher({
-                  pageUrl: {
-                      // 适配所有域名以“www.”开头的网页
-                      // hostPrefix: 'www.'
-                      // 适配所有域名以“.element-plus.org”结尾的网页
-                      // hostSuffix: '.element-plus.org',
-                      // 适配域名为“element-plus.org”的网页
-                      hostEquals: 'element-plus.org',
-                      // 适配https协议的网页
-                      // schemes: ['https'],
-                  },
+                //   pageUrl: {
+                //       // 适配所有域名以“www.”开头的网页
+                //       // hostPrefix: 'www.'
+                //       // 适配所有域名以“.element-plus.org”结尾的网页
+                //       // hostSuffix: '.element-plus.org',
+                //       // 适配域名为“element-plus.org”的网页
+                //       hostEquals: 'element-plus.org',
+                //       // 适配https协议的网页
+                //       // schemes: ['https'],
+                //   },
               }),
           ],
           actions: [
