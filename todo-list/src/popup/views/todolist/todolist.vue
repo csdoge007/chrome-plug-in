@@ -18,7 +18,6 @@
 
 <script setup>
 import { useTodoStore } from '@/popup/store/todoStore';
-// import { ref } from 'vue';
 import { storeToRefs } from 'pinia';
 import TodolistTree from './todolistTree.vue';
 const todoStore = useTodoStore();
