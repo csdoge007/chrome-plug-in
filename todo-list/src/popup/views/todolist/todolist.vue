@@ -36,8 +36,8 @@ const addTask = () => {
 
 <style lang="less">
 #app {
-  display: flex;
-  justify-content: center;
+  display: sticky;
+  justify-content: start;
   align-items: center;
 }
 
