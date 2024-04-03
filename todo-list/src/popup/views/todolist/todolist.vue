@@ -37,8 +37,8 @@ const addTask = () => {
 <style lang="less">
 #app {
   display: sticky;
-  justify-content: start;
-  align-items: start;
+  justify-content: center;
+  align-items: end;
 }
 
 .task-card {
