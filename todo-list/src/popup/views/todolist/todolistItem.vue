@@ -51,7 +51,7 @@ const toggleChecked = (task) => {
 .task {
   position: relative;
   height: 20px;
-
+  border-bottom: 1px solid #e4e7ed;
   .content {
     position: absolute;
     left: 0px;
