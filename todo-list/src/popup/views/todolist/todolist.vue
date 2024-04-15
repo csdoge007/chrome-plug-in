@@ -23,6 +23,7 @@ import TodolistTree from './todolistTree.vue';
 const todoStore = useTodoStore();
 const { newTask } = storeToRefs(todoStore);
 todoStore.loadTasks();
+
 const tasks = todoStore.getTasks;
 
 const addTask = () => {
