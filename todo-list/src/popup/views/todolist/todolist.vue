@@ -32,6 +32,7 @@ const addTask = () => {
     newTask.value = '';
   }
 
+
   
 };
 
