@@ -31,6 +31,7 @@ const addTask = () => {
     todoStore.addTask({content:newTask.value.trim()});
     newTask.value = '';
   }
+  
 };
 
 
